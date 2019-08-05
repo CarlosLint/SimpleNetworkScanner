@@ -31,17 +31,3 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: SonarQubePrepare@3
-  inputs:
-    SonarQube: 'Viwsec1'
-    scannerMode: 'MSBuild'
-    projectKey: 'deadbeef'
-    projectName: 'Azure1'
-
-- task: SonarQubeAnalyze@6
-
-- task: SonarQubePublish@7
-  inputs:
-    pollingTimeoutSec: '300'
-
