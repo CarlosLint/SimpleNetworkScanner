@@ -21,13 +21,27 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+- task: VSBuild@3
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: VSTest@4
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: SonarQubePrepare@2
+  inputs:
+    SonarQube: 'Viwsec1'
+    scannerMode: 'MSBuild'
+    projectKey: 'deadbeef'
+    projectName: 'Azure1'
+
+- task: SonarQubeAnalyze@5
+
+- task: SonarQubePublish@6
+  inputs:
+    pollingTimeoutSec: '300'
+
