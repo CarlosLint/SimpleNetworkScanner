@@ -23,7 +23,7 @@ steps:
 
 - task: SonarQubePrepare@4
   inputs:
-    SonarQube: 'deadbeef'
+    SonarQube: 'token-roots'
     scannerMode: 'MSBuild'
     projectKey: 'deadbeef'
     projectName: 'Azure1'
